@@ -1,12 +1,12 @@
 ---
 import { render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import AudioPlayer from '../../components/AudioPlayer.astro';
-import { getEpisodes, episodePath, formatDate } from '../../lib/episodes.js';
+import Layout from '../layouts/Layout.astro';
+import AudioPlayer from '../components/AudioPlayer.astro';
+import { getEpisodes, episodePath, formatDate } from '../lib/episodes.js';
 
 export async function getStaticPaths() {
   return (await getEpisodes()).map((episode) => ({
-    params: { slug: episodePath(episode).slice('/podcast/'.length).replace(/\.html$/, '') },
+    params: { slug: episodePath(episode).slice(1) },
     props: { episode },
   }));
 }

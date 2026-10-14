@@ -4,7 +4,7 @@ const dateFormatter = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 
 export const formatDate = (date) => dateFormatter.format(date);
 
 export function episodePath(episode) {
-  return `/podcast/${episode.id.replace(/^(\d{4})-(\d{2})-(\d{2})-/, '$1/$2/$3/')}.html`;
+  return `/${episode.data.number}-${episode.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}`;
 }
 
 export async function getEpisodes() {

@@ -2,8 +2,7 @@
 import '../styles/global.css';
 import { site } from '../data/site.js';
 const { title = site.title, description = site.description } = Astro.props;
-const canonicalPath = Astro.url.pathname === '/index.html' ? '/' : Astro.url.pathname;
-const canonical = new URL(canonicalPath, Astro.site);
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>

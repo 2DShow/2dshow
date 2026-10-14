@@ -5,7 +5,6 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://2dshow.dan.kim',
-  // Keep the podcast's original dated .html episode URLs.
-  build: { format: 'file' },
+  trailingSlash: 'never',
   vite: { plugins: [tailwindcss()] },
 });
