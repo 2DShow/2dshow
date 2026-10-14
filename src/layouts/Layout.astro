@@ -26,11 +26,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <body class="bg-stone-50 font-sans text-stone-900 antialiased">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:px-4 focus:py-3">К содержимому</a>
     <header class="bg-brand text-white">
-      <div class="mx-auto flex max-w-5xl items-center justify-between gap-6 px-6 py-6 sm:px-8">
-        <a href="/" class="text-xl font-semibold tracking-tight"><span class="text-brand-accent">2D</span> Show</a>
-        <nav aria-label="Навигация" class="flex gap-6 text-sm">
-          <a href="/#episodes" class="transition-colors hover:text-brand-accent">Эпизоды</a>
-          <a href="/feed.xml" class="transition-colors hover:text-brand-accent">RSS</a>
+      <div class="mx-auto flex max-w-5xl items-center justify-between gap-6 px-6 py-5 sm:px-8">
+        <a href="/" aria-label="2D Show — главная" class="text-lg font-semibold tracking-tight"><span class="text-brand-accent">2D</span> Show</a>
+        <nav aria-label="Навигация" class="flex items-center gap-6 text-sm font-medium sm:gap-8">
+          <a href="/#episodes" class="py-2 text-white/80 transition-colors hover:text-brand-accent">Эпизоды</a>
+          <a href="/feed.xml" class="py-2 text-white/80 transition-colors hover:text-brand-accent">RSS</a>
         </nav>
       </div>
     </header>
