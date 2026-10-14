@@ -1,0 +1,8 @@
+---
+const { episode } = Astro.props;
+---
+
+<audio controls preload="none" aria-label={`Слушать: ${episode.data.title}`} class="h-10 w-full">
+  <source src={episode.data.mp3_url} type="audio/mpeg" />
+  <a href={episode.data.mp3_url}>Слушать MP3</a>
+</audio>

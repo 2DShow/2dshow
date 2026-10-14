@@ -1,0 +1,28 @@
+---
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import AudioPlayer from '../../components/AudioPlayer.astro';
+import { getEpisodes, episodePath, formatDate } from '../../lib/episodes.js';
+
+export async function getStaticPaths() {
+  return (await getEpisodes()).map((episode) => ({
+    params: { slug: episodePath(episode).slice('/podcast/'.length).replace(/\.html$/, '') },
+    props: { episode },
+  }));
+}
+
+const { episode } = Astro.props;
+const { Content } = await render(episode);
+---
+
+<Layout title={`${episode.data.number}. ${episode.data.title} — 2D Show`} description={episode.data.summary}>
+  <main id="main" class="mx-auto max-w-3xl px-6 pt-10 pb-16 sm:px-8 sm:pt-12 sm:pb-20">
+    <a href="/#episodes" class="text-sm text-brand underline-offset-4 hover:underline">← Все эпизоды</a>
+    <header class="mt-8">
+      <p class="text-sm text-stone-500">Эпизод {episode.data.number} · <time datetime={episode.data.date.toISOString()}>{formatDate(episode.data.date)}</time> · {episode.data.duration}</p>
+      <h1 class="mt-4 text-4xl leading-tight font-semibold tracking-tight text-brand sm:text-5xl">{episode.data.title}</h1>
+    </header>
+    <div class="mt-8 mb-10 max-w-md"><AudioPlayer episode={episode} /></div>
+    <article class="episode-notes"><Content /></article>
+  </main>
+</Layout>

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>2D Show</title>
+  <rect width="64" height="64" fill="#574d68" />
+  <text x="32" y="44" text-anchor="middle" fill="#f2e86d" font-family="monospace" font-size="38" font-weight="700">2D</text>
+</svg>
